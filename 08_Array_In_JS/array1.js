@@ -1,4 +1,4 @@
-// # 2 Ways to create a Array in JS we can use any variables const or let
+// # 3 Ways to create a Array in JS we can use any variables const or let
 // typeof array is Object 
 const arr1 = [1,2,3,4,5];
 
@@ -6,6 +6,13 @@ let arr2 = new Array("one", "two", "three");
 
 console.log("arr1 is : ", arr1);
 console.log("arr2 is : ", arr2);
+
+
+let score1 = 100
+let score2 = 200
+let score3 = 300
+
+console.log(Array.of(score1, score2, score3));
 
 // Various Method on array 
 let emptyArr = [];
