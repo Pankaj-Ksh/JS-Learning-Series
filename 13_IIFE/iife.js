@@ -2,7 +2,7 @@
     An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.
 
     UseCase : 
-    1. Immediately Executing Initialization Code.
+    1. Immediately Executing , Code.
     2. Avoid polluting the global namespace.
     3. Execute an async function  --> depending on your usecase.
 */
