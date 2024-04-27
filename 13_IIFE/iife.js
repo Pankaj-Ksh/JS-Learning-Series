@@ -4,6 +4,7 @@
     UseCase : 
     1. Immediately Executing Initialization Code.
     2. Avoid polluting the global namespace.
+    3. Execute an async function  --> depending on your usecase.
 */
 
 // 1. Incorrect way , not giving the ;  --> it will give error  
