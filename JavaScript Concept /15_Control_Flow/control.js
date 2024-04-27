@@ -1,5 +1,5 @@
 // Control flow : 
-// if, if-else, if-else-if , nested if-else
+// if, if-else, if-else-if , nested if-else, switch, 
 // <, >, <=, >=, ==, !=, ===, !==
 
 const isUserloggedIn = true
@@ -52,4 +52,25 @@ if (userLoggedIn && debitCard && 2==3) {
 
 if (loggedInFromGoogle || loggedInFromEmail) {
     console.log("User logged in");
+}
+
+
+
+switch (month) {
+    case "jan":
+        console.log("January");
+        break;
+    case "feb":
+        console.log("feb");
+        break;
+    case "march":
+        console.log("march");
+        break;
+    case "april":
+        console.log("april");
+        break;
+
+    default:
+        console.log("default case match");
+        break;
 }
