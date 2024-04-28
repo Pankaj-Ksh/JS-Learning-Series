@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="alert('hello')"></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // 1. 3 way to add events :
+    // writing the event in the particular tag
+    document.getElementById('river').onclick = function (){
+        alert('River Image Clicked');
+    };
+    document.getElementById('prayer').addEventListener('click', function(){
+        alert('River Image Clicked');
+    }, false);
+
+
+    // 2. understand this events
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+    
+
+    // 3. events propagration
+    document.getElementById('images').addEventListener('click', function(){
+        console.log("clicked Inside the ul tag");
+    }, false)
+
+    document.getElementById('owl').addEventListener('click', function(e){
+        e.stopPropagation();
+        console.log("clicked on the owl");
+    }, false)
+
+
+    // 4. prevent the default behaviour 
+    document.getElementById('google').addEventListener('click', function(e){
+        e.preventDefault()
+        console.log("clicked on the google link")
+    }, false) 
+
+
+    // 5. e.target and also the event spillover
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e);
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let removeIMG = e.target.parentNode;
+            // removeIMG.remove();
+
+            removeIMG.parentNode.removeChild(removeIMG);
+        }
+    }, false)
+
+
+    // 6. notes
+    // Event.preventDefault(): Preventing the default behavior of an event can help prevent spillover.
+    // Event.stopPropagation(): Stopping the event from propagating up the DOM tree can prevent spillover.
+    // Event.target: Using the event.target property can help identify the source of the event and prevent spillover.
+    // Event bubbling: When an event is triggered on an element, it can bubble up the DOM tree, triggering event handlers on parent elements. This can lead to unexpected behavior if not handled properly.
+    // Event capturing: When an event is captured by a parent element, it can prevent the event from being handled by child elements, leading to spillover.
+    // Event spillover in JavaScript (JS) refers to the phenomenon where an event handler or a function is triggered unexpectedly, often due to changes in the DOM or other external factors.
+
+</script>
+</html>
